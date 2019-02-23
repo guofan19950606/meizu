@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				border:1px solid black;
+				text-align: center;
+				line-height: 50px;
+				font-size: 30px;
+				font-weight: bold;
+				color:white;
+			}
+			#redLight{
+				background-color: white;
+			}
+			#greenLight{
+				background-color: white;
+			}
+			#yellowLight{
+				background-color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="redLight">
+			
+		</div>
+		<br/>
+		<div id="greenLight">
+			
+		</div>
+		<br/>
+		<div id="yellowLight">
+			
+		</div>
+	</body>
+</html>
+<!-- <script type="text/javascript" src="js/tools.js" ></script> -->
+<script type="text/javascript">
+	function reds(){
+		$("#redLight").style.backgroundColor = "red";
+		let connet = 5;
+		$("#redLight").innerHTML = connet;
+		return new Promise(function(resolve,reject){
+			let mytime = setInterval(()=>{
+				connet--;
+				if(connet<=0){
+					connent=0;
+					window.clearInterval(mytime);
+					$("#redLight").innerHTML = "";
+					$("#redLight").style.backgroundColor="white";
+					resolve();
+				}
+				$("#redLight").innerHTML = connet;
+			},1000)
+			
+		
+		});
+
+	}
+	function greens(){
+		$("#greenLight").style.backgroundColor = "green";
+		let connet = 4;
+		$("#greenLight").innerHTML = connet;
+		return new Promise(function(resolve,reject){
+			let mytime = setInterval(()=>{
+				connet--;
+				if(connet<=0){
+					connent=0;
+					window.clearInterval(mytime);
+					$("#greenLight").innerHTML = "";
+					$("#greenLight").style.backgroundColor="white";
+					resolve();
+				}
+				$("#greenLight").innerHTML = connet;
+			},1000)
+			
+		
+		});
+
+	}
+	function yellows(){
+		$("#yellowLight").style.backgroundColor = "yellow";
+		let connet = 3;
+		$("#yellowLight").innerHTML = connet;
+		return new Promise(function(resolve,reject){
+			let mytime = setInterval(()=>{
+				connet--;
+				if(connet<=0){
+					connent=0;
+					window.clearInterval(mytime);
+					$("#yellowLight").innerHTML = "";
+					$("#yellowLight").style.backgroundColor="white";
+					resolve();
+				}
+				$("#yellowLight").innerHTML = connet;
+			},1000)
+			
+		
+		});
+
+	}
+	function kai(){
+		reds().then(greens).then(yellows).then(kai);
+	}
+
+
+window,onload = function(){
+	kai();
+}
+
+function $(str){
+    if(str.charAt(0)=="#"){
+        return document.getElementById(str.substring(1));
+    }else if(str.charAt(0)=="."){
+        return document.getElementsByClassName(str.substring(1));
+    }else{
+        return document.getElementsByTagName(str);
+    }
+}		
+</script>

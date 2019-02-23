@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script type="text/javascript" src="js/map.js"></script>
+<script type="text/javascript" src="js/MoverObj.js"></script>
+<script type="text/javascript" src="js/enemyPlane.js"></script>
+<script type="text/javascript" src="js/bullet.js"></script>
+<script type="text/javascript" src="js/myPlane.js"></script>
+<script type="text/javascript">
+
+//项目中的类
+
+//一、地图（战场）
+//二、移动的物体
+//1、我方飞机
+//2、子弹
+//3、敌方战机
+
+
+window.onload = function(){
+	//1、创建地图
+	let m = new Map({
+		"width":480,
+		"height":600,
+		"bgImg":"img/bg.jpg"
+	});
+	//让背景走  
+	m.bgGo();
+
+	//2、我方战机
+	let myPlane = new MyPlane({
+		"map":m,
+		"width":96,
+		"height":60,
+		"bgImg":"img/myplane.png",
+		"left":(480-96)/2,
+		"top":600-60
+	});
+	myPlane.addEvent();
+	//发射子弹
+	myPlane.shoot();
+	m.myPlanes.push(myPlane);
+
+	//3、敌机
+	setInterval(function(){
+		let left = parseInt(Math.random()*(m.width-59));
+		let e = new EnemyPlane({
+			"map":m,
+			"width":59,
+			"height":36,
+			"bgImg":"img/plane1.png",
+			"left":left,
+			"top":-36,
+			"directionTop":1,
+			"step":50,
+			"timeSpace":1000,
+			"imgs":["img/plain1_die1.png","img/plain1_die2.png","img/plain1_die3.png"]
+		});
+		e.go();
+		m.enemyPlanes.push(e);//敌机放在数组里了
+	},1000);
+}
+
+</script>
