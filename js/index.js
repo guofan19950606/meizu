@@ -67,7 +67,6 @@ $("#zhuce") .mouseleave(function(){
 	nextEl: '.swiper-button-next',
 	prevEl: '.swiper-button-prev',
   },
-    outline: none;
 });
 window.onresize=function(){
   swiper.update();
