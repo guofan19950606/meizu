@@ -52,6 +52,7 @@ a{
     padding: 35px 35px 10px;
     border-radius: 2px;
     height:430px;
+    display: block;
 }
 .bigbox{
 	width: 298px;
@@ -63,7 +64,24 @@ a{
     border-radius: 2px;
     height: 430px;
     display: none;
+    text-align: center;
 }
+.one13{
+    margin-top: -64px !important;
+}
+.one13 .spone{
+   display: flex;
+   justify-content: space-between;
+
+}
+.sptwo{
+    width: 33px;
+    height: 33px !important;
+    background: red;
+    border-radius: 50%;
+    line-height: 33px;
+}
+
 .txt-box {
 	margin-top: 50px;
     height: 33px;

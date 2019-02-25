@@ -14,7 +14,7 @@ function showList(objs){
                 </div>`;
     }
 
-    $("#goodsListWrap").html(htmlStr);
+    $("#goodsListWrap").append(htmlStr);
 }    
 
 $(function(){

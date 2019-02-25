@@ -17,7 +17,7 @@
 		//3、传输数据（运送）
 		//3.1)、定义一个字符串，写上SQL语句
 		$sqlstr="insert into userinfo(username,userpass)
-              values('$userphone',$userpass)";
+              values('$userphone','$userpass')";
         //3.2)、执行SQL语句
         $result = mysql_query($sqlstr,$conn);
 
